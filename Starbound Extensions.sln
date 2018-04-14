@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Starbound Extentions", "Starbound Extentions\Starbound Extentions.csproj", "{51CD320D-6877-4F5F-88C2-3C0BA3E32ECD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Starbound Extensions", "Starbound Extentions\Starbound Extensions.csproj", "{51CD320D-6877-4F5F-88C2-3C0BA3E32ECD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
