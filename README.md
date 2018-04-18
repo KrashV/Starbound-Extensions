@@ -1,5 +1,5 @@
-# Starbound-Extentions
-A tool to mantain the Starbound file extentions
+# Starbound-Extensions
+A tool to mantain the Starbound file extensions
 
 ## Setup
 1. Download the [latest release](https://github.com/KrashV/Starbound-Extentions/releases)
