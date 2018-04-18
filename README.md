@@ -14,6 +14,7 @@ A tool to mantain the Starbound file extentions
 
 or
 press Right Mouse Button and select the wanted option from the context menu:
+
 ![usage pack preview](https://i.imgur.com/d39tw8c.png)
 
 ![usage unpack preview](https://i.imgur.com/tQrwDAM.png)
