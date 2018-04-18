@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -10,16 +11,47 @@ namespace Starbound_Extentions
     {
         private static string starbound_path;
 
-        static void Main(string[] args)
+        static void setRegister(string p)
         {
-            if (args.Length == 0)
+            try
             {
-                Console.WriteLine("Usage: \"Starbound Extensions\" path_to_pak_or_directory");
+                //set the .pak file
+                Registry.SetValue(@"HKEY_CLASSES_ROOT\SystemFileAssociations\.pak\shell\Unpack\command", null, "\"" + p + "\"" +  " \"%1\"");
+
+                //set the .player file
+                Registry.SetValue(@"HKEY_CLASSES_ROOT\SystemFileAssociations\.player\shell\Make versioned json\command", null, "\"" + p + "\"" + " \"%1\"");
+
+                //set the .json file
+                Registry.SetValue(@"HKEY_CLASSES_ROOT\SystemFileAssociations\.json\Dump versioned json\command", null, "\"" + p + "\"" + " \"%1\"");
+
+                //set the pack folder option
+                Registry.SetValue(@"HKEY_CLASSES_ROOT\Directory\shell\Pack\command", null, "\"" + p + "\"" + " \"%V\"");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.ReadLine();
                 return;
             }
 
+            Console.WriteLine("Register set!");
+        }
+        static void Main(string[] args)
+        {
+            string app_location = new Uri(System.Reflection.Assembly.GetExecutingAssembly().CodeBase).LocalPath;
+
+            setRegister(app_location);
+
+            if (args.Length == 0)
+            {
+                Console.WriteLine("Usage: \"Starbound Extensions\" path_to_pak_or_directory");
+                Console.ReadLine();
+                return;
+            }
+
+
             // retreive the starbound directory
-            starbound_path = Environment.CurrentDirectory;
+            starbound_path = Path.GetDirectoryName(app_location);
 
             // get the file attributes for file or directory
             FileAttributes attr = File.GetAttributes(@args[0]);
@@ -36,6 +68,7 @@ namespace Starbound_Extentions
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+                Console.WriteLine("Path:" + starbound_path);
                 return;
             }
 
