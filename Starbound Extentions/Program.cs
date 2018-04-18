@@ -5,42 +5,15 @@ using System.Diagnostics;
 using System.IO;
 using System.Threading;
 
-namespace Starbound_Extentions
+namespace Starbound_Extensions
 {
     class Program
     {
         private static string starbound_path;
 
-        static void setRegister(string p)
-        {
-            try
-            {
-                //set the .pak file
-                Registry.SetValue(@"HKEY_CLASSES_ROOT\SystemFileAssociations\.pak\shell\Unpack\command", null, "\"" + p + "\"" +  " \"%1\"");
-
-                //set the .player file
-                Registry.SetValue(@"HKEY_CLASSES_ROOT\SystemFileAssociations\.player\shell\Make versioned json\command", null, "\"" + p + "\"" + " \"%1\"");
-
-                //set the .json file
-                Registry.SetValue(@"HKEY_CLASSES_ROOT\SystemFileAssociations\.json\Dump versioned json\command", null, "\"" + p + "\"" + " \"%1\"");
-
-                //set the pack folder option
-                Registry.SetValue(@"HKEY_CLASSES_ROOT\Directory\shell\Pack\command", null, "\"" + p + "\"" + " \"%V\"");
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                Console.ReadLine();
-                return;
-            }
-
-            Console.WriteLine("Register set!");
-        }
         static void Main(string[] args)
         {
             string app_location = new Uri(System.Reflection.Assembly.GetExecutingAssembly().CodeBase).LocalPath;
-
-            setRegister(app_location);
 
             if (args.Length == 0)
             {
@@ -97,7 +70,7 @@ namespace Starbound_Extentions
                 return new ProcessStartInfo(){
                     FileName = packerPath,
                     WorkingDirectory = @folderDirectory,
-                    Arguments = "\"" + @directoryPath + "\" " + @folderName + ".pak",
+                    Arguments = "\"" + @directoryPath + "\" " + "\"" + @folderName + ".pak" + "\"",
                     RedirectStandardError = true,
                     RedirectStandardOutput = true,
                     RedirectStandardInput = true,
@@ -144,7 +117,7 @@ namespace Starbound_Extentions
                 {
                     FileName = processPath,
                     WorkingDirectory = @fileDirectory,
-                    Arguments = "\"" + @filePath + "\"" + " " + "\"" + @fileName + "\"" + processExtension,
+                    Arguments = "\"" + @filePath + "\"" + " " + "\"" + @fileName + processExtension + "\"",
                     RedirectStandardError = true,
                     RedirectStandardOutput = true,
                     RedirectStandardInput = true,

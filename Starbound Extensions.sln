@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Starbound Extensions", "Starbound Extentions\Starbound Extensions.csproj", "{51CD320D-6877-4F5F-88C2-3C0BA3E32ECD}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup Wizard", "Setup Wizard\Setup Wizard.vdproj", "{4FEDDEA9-FD41-463E-82E9-B18FD0E9CE78}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{51CD320D-6877-4F5F-88C2-3C0BA3E32ECD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51CD320D-6877-4F5F-88C2-3C0BA3E32ECD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51CD320D-6877-4F5F-88C2-3C0BA3E32ECD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FEDDEA9-FD41-463E-82E9-B18FD0E9CE78}.Debug|Any CPU.ActiveCfg = Debug
+		{4FEDDEA9-FD41-463E-82E9-B18FD0E9CE78}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
